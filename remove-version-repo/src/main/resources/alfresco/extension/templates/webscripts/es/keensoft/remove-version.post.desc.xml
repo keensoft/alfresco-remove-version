@@ -1,0 +1,7 @@
+<webscript>
+  <shortname>Remove a version</shortname>
+  <description>Java-backed implementation for removing a version. Requires "label"" parameter as POST</description>
+  <url>/api/node/version/{store_type}/{store_id}/{id}</url>
+  <authentication>user</authentication>
+  <format default="json"/>
+</webscript> 

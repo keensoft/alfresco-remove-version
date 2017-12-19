@@ -1,0 +1,10 @@
+/* Add icon for the new button */
+.document-versions .actions a.remove
+{
+   background-image: url(images/document-delete-16.png);
+}
+
+/* Add more space to include a new button */
+.document-versions .actions {
+    width: 7em !important;
+}

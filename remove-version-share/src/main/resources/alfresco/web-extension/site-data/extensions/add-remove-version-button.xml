@@ -1,0 +1,22 @@
+<extension>
+	<modules>
+		<module>
+			<id>Add remove version button</id>
+            <version>1.0</version>
+            <auto-deploy>true</auto-deploy>
+            <!-- Feature only available for members of group VERSION_REMOVERS -->
+            <evaluator type="group.module.evaluator">
+                <params>
+                    <groups>GROUP_VERSION_REMOVERS</groups>
+                    <groupRelation>AND</groupRelation>
+                </params>
+            </evaluator>
+            	<customizations>
+				<customization>
+					<targetPackageRoot>org.alfresco.components</targetPackageRoot>
+					<sourcePackageRoot>es.keensoft.components</sourcePackageRoot>
+				</customization>
+			</customizations>
+		</module>
+	</modules>
+</extension>
