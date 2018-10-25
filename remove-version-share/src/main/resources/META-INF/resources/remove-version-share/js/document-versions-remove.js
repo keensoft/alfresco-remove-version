@@ -36,8 +36,8 @@ var $html = Alfresco.util.encodeHTML,
 	    	   html += '      <a href="' + downloadURL + '" target="_blank" class="download" title="' + this.msg("label.download") + '">&nbsp;</a>';
 	    	   html += '      <a href="#" name=".onViewHistoricPropertiesClick" rel="' + doc.nodeRef + '" class="' + this.id + ' historicProperties" title="' + this.msg("label.historicProperties") + '">&nbsp;</a>';
 	    	   
-	    	   // Add new icon to remove a version passing "label" parameter to "onRemoveClick" function 
-	    	   html += '      <a href="#" target="_blank" name=".onRemoveClick" rel="' + doc.label + '" class="' + this.id + ' remove" title="' + this.msg("label.delete") + '">&nbsp;</a>';
+	    	   // Add new icon to remove a version passing "label" parameter to "beforeRevemoClick" function 
+	    	   html += '      <a href="#" target="_blank" name=".beforeRemoveClick" rel="' + doc.label + '" class="' + this.id + ' remove" title="' + this.msg("label.delete") + '">&nbsp;</a>';
 	    	   
 	    	   html += '   </span>';
 	    	   html += '   <div class="clear"></div>';
@@ -59,7 +59,7 @@ var $html = Alfresco.util.encodeHTML,
 	   },
 	   
 	   // Call Alfresco repo to invoke DELETE Web Script for version removal
-	   onRemoveClick: function DocumentVersions_onRemoveClick(label)
+	   _onRemoveClick: function DocumentVersions_onRemoveClick(label)
 	   {
 		   
 		   // Use nodeRef from parent object Alfresco.DocumentVersions
@@ -107,8 +107,36 @@ var $html = Alfresco.util.encodeHTML,
 		   YAHOO.Bubbling.fire("previewChangedEvent");
 		   YAHOO.Bubbling.fire("metadataRefresh", {});
 		   
-	   }
-            	   
+       },
+	   
+       beforeRemoveClick: function DocumentVersions_beforeRemoveClick(label)
+       {
+          var me = this;
+          
+          Alfresco.util.PopupManager.displayPrompt(
+          {
+             title: this.msg("actions.version.delete"),
+             text: this.msg("message.confirm.delete"),
+             buttons: [
+             {
+                text: this.msg("button.delete"),
+                handler: function DocumentVersions_onRemoveVersion_remove()
+                {
+                   this.destroy();
+                   me._onRemoveClick.call(me, label);
+                }
+             },
+             {
+            	 text: this.msg("button.cancel"),
+                handler: function DocumentVersions__onRemoveVersion_cancel()
+                {
+                   this.destroy();
+                },
+                isDefault: true
+             }]
+          });
+       }
+
    };
    
 })();
