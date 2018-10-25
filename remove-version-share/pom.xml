@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>es.keensoft</groupId>
     <artifactId>remove-version-share</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1-SNAPSHOT</version>
     <name>remove-version-share Share Jar Module - SDK 3</name>
     <description>Share JAR Module (to be included in the share.war) - SDK 3</description>
     <packaging>jar</packaging>
