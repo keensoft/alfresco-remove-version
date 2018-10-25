@@ -14,10 +14,12 @@ Alfresco Share only exposes actions to *revert*, *download* and *view properties
 The plugin is licensed under the [LGPL v3.0](http://www.gnu.org/licenses/lgpl-3.0.html). 
 
 **State**
-Current patch release is 1.0.0
+Current patch release is 1.1.0
 
 **Compatibility** 
 The current version has been developed using Alfresco 201707 and Alfresco SDK 3.0.1
+
+It works with Alfresco CE 5.2
 
 ***Original Alfresco resources have been overwritten***
 
@@ -41,3 +43,7 @@ You can build the artifacts from source code using maven
 
 ```$ mvn clean package```
 
+Contributors
+------------
+
+* [Douglas C. R. Paes](https://github.com/douglascrp)
