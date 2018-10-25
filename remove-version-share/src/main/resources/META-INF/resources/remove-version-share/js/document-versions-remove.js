@@ -115,7 +115,7 @@ var $html = Alfresco.util.encodeHTML,
           
           Alfresco.util.PopupManager.displayPrompt(
           {
-             title: this.msg("actions.version.delete),
+             title: this.msg("actions.version.delete"),
              text: this.msg("message.confirm.delete"),
              buttons: [
              {
